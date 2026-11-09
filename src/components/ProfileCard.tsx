@@ -34,7 +34,7 @@ const ProfileCard: FC<Props> = ({
             alt="Rabea Shaban | ربيع شعبان"
             priority
             unoptimized
-            className="h-24 w-24 sm:h-32 sm:w-32 rounded-full border-2 border-indigo-500/20 object-cover shadow-2xl shadow-slate-950/20"
+            className="h-24 w-24 sm:h-32 sm:w-32 rounded-full border-2 border-indigo-500/20 object-cover object-top shadow-2xl shadow-slate-950/20"
           />
         </div>
 
