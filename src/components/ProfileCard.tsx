@@ -24,8 +24,8 @@ const ProfileCard: FC<Props> = ({
   copied,
 }) => {
   return (
-    <section className="rounded-[2.5rem] border border-slate-200/80 bg-white/90 p-6 shadow-glass backdrop-blur-xl text-slate-950 sm:p-8 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100">
-      <div className="flex flex-col items-center text-center gap-6">
+    <section className="min-w-0 rounded-3xl sm:rounded-[2.5rem] border border-slate-200/80 bg-white/90 p-4 shadow-glass sm:backdrop-blur-xl text-slate-950 sm:p-8 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100">
+      <div className="flex flex-col items-center min-w-0 text-center gap-4 sm:gap-6">
         {/* Avatar */}
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-indigo-500/30 via-transparent to-fuchsia-500/25 blur-2xl" />
@@ -34,40 +34,40 @@ const ProfileCard: FC<Props> = ({
             alt="Rabea Shaban | ربيع شعبان"
             priority
             unoptimized
-            className="h-32 w-32 rounded-full border-2 border-indigo-500/20 object-cover shadow-2xl shadow-slate-950/20"
+            className="h-24 w-24 sm:h-32 sm:w-32 rounded-full border-2 border-indigo-500/20 object-cover shadow-2xl shadow-slate-950/20"
           />
         </div>
 
         {/* Info */}
-        <div className="space-y-3 max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 px-4 py-1 text-xs font-medium text-slate-600 dark:text-slate-300">
+        <div className="w-full min-w-0 space-y-3 max-w-2xl">
+          <div className="inline-flex max-w-full flex-wrap justify-center items-center gap-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 px-4 py-1 text-xs font-medium text-slate-600 dark:text-slate-300">
             <span>Rabea Shaban</span>
             <span>•</span>
             <span dir="rtl">ربيع شعبان</span>
           </div>
 
-          <h1 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
+          <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 dark:text-white">
             Full Stack Software Engineer
           </h1>
 
-          <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed sm:text-lg">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed sm:text-lg">
             Full Stack Software Engineer specializing in React.js, Next.js, TypeScript, Node.js, and MongoDB. Building modern, scalable web applications and sharing my programming journey.
           </p>
 
           {/* Availability Badge */}
           <div className="flex justify-center pt-1">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500 animate-pulse" />
               Available for work & freelance projects
             </span>
           </div>
 
           {/* Primary Email */}
-          <p className="text-sm font-mono text-slate-500 dark:text-slate-400">{email}</p>
+          <p className="break-words text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400">{email}</p>
         </div>
 
         {/* Actions */}
-        <div className="grid w-full gap-3 sm:grid-cols-[1fr_auto]">
+        <div className="grid w-full min-w-0 gap-3 lg:grid-cols-[1fr_auto]">
           {/* Theme Toggle */}
           <motion.button
             whileHover={{ scale: 1.02 }}
