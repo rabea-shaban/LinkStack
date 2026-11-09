@@ -164,6 +164,10 @@ export default function BioPage() {
                     ))}
                   </ul>
 
+                  <p className="text-sm leading-7 text-slate-600 dark:text-slate-400">
+                    نسعى من خلال أثر إلى تقديم محتوى إسلامي نافع وتجربة تساعد كل مسلم على جعل العبادة والذكر جزءًا من يومه. نسأل الله أن يجعل أثر علمًا نافعًا وصدقة جارية، وأن ينفع به كل من يستخدمه أو يساهم في تطويره.
+                  </p>
+
                   <div className="grid gap-3 sm:grid-cols-2">
                     <LinkButton link={atharWebsiteLink} />
                     <LinkButton link={atharAndroidLink} />
