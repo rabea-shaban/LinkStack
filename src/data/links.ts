@@ -10,6 +10,7 @@ import {
   SiYoutube,
 } from 'react-icons/si';
 import {
+  FiDownload,
   FiGlobe,
   FiList,
   FiMail,
@@ -117,6 +118,27 @@ export const platformWebsiteLink: LinkItem = {
   imageSrc: '/khamsa-logo.png',
   accent: 'indigo',
   badge: 'المنصة الرسمية',
+};
+
+export const atharWebsiteLink: LinkItem = {
+  id: 'athar-website',
+  label: 'زيارة موقع أثر',
+  description: 'الموقع الرسمي لمنصة أَثَر للمعرفة الإسلامية.',
+  href: 'https://athar-library.vercel.app/',
+  icon: FiGlobe,
+  imageSrc: '/athar-logo.png',
+  accent: 'emerald',
+  badge: 'الموقع الرسمي',
+};
+
+export const atharAndroidLink: LinkItem = {
+  id: 'athar-android',
+  label: 'تحميل تطبيق أثر للأندرويد',
+  description: 'حمّل تطبيق أثر للأندرويد من الموقع الرسمي.',
+  href: 'https://athar-library.vercel.app/api/download',
+  icon: FiDownload,
+  accent: 'emerald',
+  badge: 'Android',
 };
 
 // 5. Official YouTube Channel & Featured Content

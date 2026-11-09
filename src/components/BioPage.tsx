@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import {
@@ -15,6 +16,8 @@ import { FaTiktok } from 'react-icons/fa6';
 import LinkButton from './LinkButton';
 import ProfileCard from './ProfileCard';
 import {
+  atharAndroidLink,
+  atharWebsiteLink,
   freelanceLinks,
   personalContactLinks,
   personalProfessionalLinks,
@@ -30,6 +33,16 @@ import {
 
 const PRIMARY_EMAIL = 'rabea.elzayate@gmail.com';
 const DOWNLOAD_CV_URL = 'https://flowcv.com/resume/a7n0o85l8o65';
+
+const atharFeatures = [
+  'القرآن الكريم والاستماع إلى التلاوات',
+  'أذكار الصباح والمساء',
+  'المسبحة الإلكترونية',
+  'مواقيت الصلاة',
+  'التنبيهات والتذكيرات اليومية',
+  'مكتبة للمحتوى والكتب الإسلامية',
+  'واجهة سهلة الاستخدام وتجربة مريحة',
+];
 
 export default function BioPage() {
   const [darkMode, setDarkMode] = useState(true);
@@ -106,6 +119,55 @@ export default function BioPage() {
                   {personalProfessionalLinks.map((item) => (
                     <LinkButton key={item.id} link={item} />
                   ))}
+                </div>
+              </section>
+
+              <hr className="border-slate-200/80 dark:border-white/10" />
+
+              {/* أَثَر | ATHAR Islamic App */}
+              <section className="space-y-4" dir="rtl">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-600 dark:text-emerald-400">
+                    تطبيق إسلامي
+                  </span>
+                  <h2 className="mt-1 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
+                    أَثَر | ATHAR
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                    رفيقك اليومي في رحلتك الإيمانية، يساعدك على التقرب إلى الله والمحافظة على العبادات والأذكار.
+                  </p>
+                </div>
+
+                <div className="space-y-5 rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent p-3 shadow-xl sm:p-5">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="shrink-0 rounded-2xl border border-emerald-500/15 bg-white p-2 shadow-md">
+                      <Image
+                        src="/athar-logo.png"
+                        alt="الشعار الرسمي لمنصة أَثَر"
+                        width={72}
+                        height={72}
+                        unoptimized
+                        className="h-14 w-14 rounded-xl object-contain sm:h-16 sm:w-16"
+                      />
+                    </div>
+                    <p className="min-w-0 pt-1 text-sm leading-7 text-slate-700 dark:text-slate-300">
+                      تطبيق متكامل يضم القرآن الكريم والتلاوات، الأذكار، العبادات، ومكتبة للمحتوى والكتب الإسلامية، في تجربة مريحة وسهلة الاستخدام.
+                    </p>
+                  </div>
+
+                  <ul className="grid gap-2 sm:grid-cols-2">
+                    {atharFeatures.map((feature) => (
+                      <li key={feature} className="flex min-w-0 items-start gap-2 rounded-xl border border-emerald-500/10 bg-white/50 px-3 py-2 text-xs leading-5 text-slate-700 dark:bg-slate-950/30 dark:text-slate-300">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <LinkButton link={atharWebsiteLink} />
+                    <LinkButton link={atharAndroidLink} />
+                  </div>
                 </div>
               </section>
 
