@@ -23,15 +23,15 @@ const LinkButton: FC<{ link: LinkItem; compact?: boolean }> = ({ link, compact =
       href={link.href}
       target={isMail ? '_self' : '_blank'}
       rel={isMail ? undefined : 'noopener noreferrer'}
-      className={`group flex items-center justify-between rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-slate-100/90 shadow-lg shadow-slate-950/5 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-200/80 hover:shadow-slate-950/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-white/10 dark:bg-slate-900/80 dark:hover:bg-slate-900/95 ${
-        compact ? 'px-4 py-3' : 'px-5 py-4'
+      className={`group flex w-full min-w-0 items-center justify-between rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-slate-100/90 shadow-lg shadow-slate-950/5 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-200/80 hover:shadow-slate-950/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-white/10 dark:bg-slate-900/80 dark:hover:bg-slate-900/95 ${
+        compact ? 'px-3 py-3 sm:px-4' : 'px-3 py-3 sm:px-5 sm:py-4'
       }`}
     >
-      <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
+      <div className="flex flex-1 items-center gap-2.5 sm:gap-4 min-w-0">
         {link.imageSrc ? (
           <div
             className={`relative shrink-0 flex items-center justify-center rounded-2xl overflow-hidden bg-white p-1 border border-slate-200/80 shadow-md dark:border-white/10 dark:bg-slate-900 ${
-              compact ? 'h-10 w-10' : 'h-12 w-12'
+              compact ? 'h-10 w-10' : 'h-10 w-10 sm:h-12 sm:w-12'
             }`}
           >
             <Image
@@ -47,29 +47,29 @@ const LinkButton: FC<{ link: LinkItem; compact?: boolean }> = ({ link, compact =
           <span
             className={`inline-flex shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br shadow-md ${
               accentClasses[link.accent]
-            } ${compact ? 'h-10 w-10 text-lg p-2.5' : 'h-12 w-12 text-xl p-3'}`}
+            } ${compact ? 'h-10 w-10 text-lg p-2.5' : 'h-10 w-10 text-lg p-2.5 sm:h-12 sm:w-12 sm:text-xl sm:p-3'}`}
           >
             <Icon className="h-full w-full object-contain" />
           </span>
         )}
 
-        <div className="min-w-0 text-left">
+        <div className="min-w-0 flex-1 text-left">
           <div className="flex items-center gap-2 flex-wrap">
-            <p className="text-base sm:text-lg font-semibold text-slate-950 dark:text-white truncate">
+            <p className="min-w-0 max-w-full text-base sm:text-lg font-semibold text-slate-950 dark:text-white break-words">
               {link.label}
             </p>
             {link.badge && (
-              <span className="inline-block rounded-full bg-slate-200/90 dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-medium text-slate-700 dark:text-slate-300">
+              <span className="inline-block rounded-full bg-slate-200/90 dark:bg-white/10 px-2.5 py-0.5 text-[11px] font-medium text-slate-700 dark:text-slate-300 max-w-full break-words">
                 {link.badge}
               </span>
             )}
           </div>
-          <p className="mt-0.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+          <p className="mt-0.5 break-words text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
             {link.description}
           </p>
         </div>
       </div>
-      <span className="ml-3 inline-flex shrink-0 h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-slate-200 text-slate-950 transition duration-200 group-hover:bg-slate-300 group-hover:translate-x-0.5 dark:bg-white/10 dark:text-slate-200 dark:group-hover:bg-white/15">
+      <span className="ml-2 sm:ml-3 inline-flex shrink-0 h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-slate-200 text-slate-950 transition duration-200 group-hover:bg-slate-300 group-hover:translate-x-0.5 dark:bg-white/10 dark:text-slate-200 dark:group-hover:bg-white/15">
         →
       </span>
     </a>

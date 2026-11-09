@@ -67,14 +67,14 @@ export default function BioPage() {
 
   return (
     <div className={darkMode ? 'dark' : undefined}>
-      <main className="relative min-h-screen overflow-hidden bg-slate-50 text-slate-950 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+      <main className="relative min-h-screen overflow-x-clip bg-slate-50 text-slate-950 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
         {/* Background decorations */}
         <div className="pointer-events-none absolute inset-0 bg-soft-gradient opacity-70" />
-        <div className="pointer-events-none absolute left-1/2 top-10 h-96 w-96 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute right-10 top-1/4 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute left-5 bottom-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="pointer-events-none hidden sm:block absolute left-1/2 top-10 h-96 w-96 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="pointer-events-none hidden sm:block absolute right-10 top-1/4 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
+        <div className="pointer-events-none hidden sm:block absolute left-5 bottom-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
 
-        <div className="relative mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-4 py-10 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex min-h-screen w-full min-w-0 max-w-3xl flex-col justify-center px-3 py-5 sm:px-6 sm:py-10 lg:px-8">
           <div className="space-y-8">
             {/* 1. Profile Card */}
             <ProfileCard
@@ -87,7 +87,7 @@ export default function BioPage() {
             />
 
             {/* Main Links Container */}
-            <div className="space-y-8 rounded-[2.5rem] border border-slate-200/80 bg-slate-100/90 p-6 shadow-glass backdrop-blur-xl sm:p-8 dark:border-white/10 dark:bg-white/5">
+            <div className="min-w-0 space-y-8 rounded-3xl sm:rounded-[2.5rem] border border-slate-200/80 bg-slate-100/90 p-3 shadow-glass sm:backdrop-blur-xl sm:p-8 dark:border-white/10 dark:bg-white/5">
               
               {/* 2. Personal & Professional Links */}
               <section className="space-y-4">
@@ -196,20 +196,20 @@ export default function BioPage() {
                 <LinkButton link={youtubeOfficialLink} />
 
                 {/* Collapsible Featured Videos */}
-                <div className="rounded-2xl border border-slate-200/80 bg-white/60 p-4 dark:border-white/10 dark:bg-white/5">
+                <div className="rounded-2xl border border-slate-200/80 bg-white/60 p-3 sm:p-4 dark:border-white/10 dark:bg-white/5">
                   <button
                     type="button"
                     onClick={() => setShowYoutubeVideos((prev) => !prev)}
-                    className="flex w-full items-center justify-between text-left text-sm font-semibold text-slate-800 transition hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                    className="flex w-full items-center justify-between gap-2 text-left text-sm font-semibold text-slate-800 transition hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="flex min-w-0 items-center gap-2 [&>svg]:shrink-0">
                       <FiPlay className="h-4 w-4 text-rose-500" />
                       Featured Tutorials & Playlist ({youtubeFeaturedLinks.length})
                     </span>
                     {showYoutubeVideos ? (
-                      <FiChevronUp className="h-4 w-4" />
+                      <FiChevronUp className="h-4 w-4 shrink-0" />
                     ) : (
-                      <FiChevronDown className="h-4 w-4" />
+                      <FiChevronDown className="h-4 w-4 shrink-0" />
                     )}
                   </button>
 
@@ -248,20 +248,20 @@ export default function BioPage() {
                 <LinkButton link={tiktokOfficialLink} />
 
                 {/* Collapsible Featured TikTok Videos */}
-                <div className="rounded-2xl border border-slate-200/80 bg-white/60 p-4 dark:border-white/10 dark:bg-white/5">
+                <div className="rounded-2xl border border-slate-200/80 bg-white/60 p-3 sm:p-4 dark:border-white/10 dark:bg-white/5">
                   <button
                     type="button"
                     onClick={() => setShowTiktokVideos((prev) => !prev)}
-                    className="flex w-full items-center justify-between text-left text-sm font-semibold text-slate-800 transition hover:text-cyan-600 dark:text-slate-200 dark:hover:text-cyan-400"
+                    className="flex w-full items-center justify-between gap-2 text-left text-sm font-semibold text-slate-800 transition hover:text-cyan-600 dark:text-slate-200 dark:hover:text-cyan-400"
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="flex min-w-0 items-center gap-2 [&>svg]:shrink-0">
                       <FaTiktok className="h-4 w-4 text-cyan-400" />
                       Featured Short Videos ({tiktokFeaturedVideos.length})
                     </span>
                     {showTiktokVideos ? (
-                      <FiChevronUp className="h-4 w-4" />
+                      <FiChevronUp className="h-4 w-4 shrink-0" />
                     ) : (
-                      <FiChevronDown className="h-4 w-4" />
+                      <FiChevronDown className="h-4 w-4 shrink-0" />
                     )}
                   </button>
 
@@ -411,25 +411,27 @@ export default function BioPage() {
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-glass backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 text-center"
+                    className="rounded-3xl border border-slate-200/80 bg-white/90 p-3 sm:p-6 shadow-glass sm:backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 text-center"
                   >
                     <div className="flex flex-col items-center gap-2">
                       <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                         Personal Email Contact
                       </span>
-                      <h4 className="text-lg font-bold text-slate-950 dark:text-white">
+                      <h4 className="min-w-0 max-w-full break-words text-lg font-bold text-slate-950 dark:text-white">
                         Scan to Email: {PRIMARY_EMAIL}
                       </h4>
                       <p className="max-w-md text-xs text-slate-600 dark:text-slate-400">
                         Scan with your phone camera to instantly compose an email to Rabea Shaban. (Supports standard mailto: QR format)
                       </p>
                     </div>
-                    <div className="mt-5 flex justify-center">
-                      <div className="rounded-3xl border-2 border-slate-200/80 dark:border-white/10 bg-white p-4 shadow-xl">
+                    <div className="mt-5 flex min-w-0 justify-center">
+                      <div className="w-full max-w-64 min-w-0 rounded-3xl border-2 border-slate-200/80 dark:border-white/10 bg-white p-4 shadow-xl">
                         <img
                           src={qrCodeUrl}
                           alt={`QR Code to email ${PRIMARY_EMAIL}`}
-                          className="h-56 w-56 rounded-2xl"
+                          width={224}
+                          height={224}
+                          className="aspect-square h-auto w-full rounded-2xl"
                           loading="lazy"
                         />
                       </div>
